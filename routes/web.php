@@ -27,3 +27,11 @@ Route::get('/create', function () {
     // these two lines can be shortend to:
     $user->posts()->save(new Post(['title'=>'My first post', 'body'=>'I love Laravel']));
 });
+
+Route::get('/read', function () {
+    $user = User::findOrFail(1);
+
+    foreach($user->posts as $post){
+        echo $post->title . "<br>";
+    }
+});
