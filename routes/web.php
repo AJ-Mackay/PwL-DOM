@@ -35,3 +35,9 @@ Route::get('/read', function () {
         echo $post->title . "<br>";
     }
 });
+
+Route::get('/update', function () {
+    $user = User::findOrFail(1);
+
+    $user->posts()->whereId(1)->update(['title'=>'I love Laravel', 'body'=>'This is awesome']);
+});
